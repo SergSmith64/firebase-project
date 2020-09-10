@@ -8,3 +8,5 @@
 * add project (without Google-Analytics)
 * create Realtime Database in test-mode (https://itvdn-project.firebaseio.com/)
 * firebase init
+
+3. fix: database.rules.json - delete comments!
