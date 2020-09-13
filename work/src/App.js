@@ -29,9 +29,14 @@ export default class App extends Component {
   createAccount = () => {
     // alert();
     const { email, password } = this.state;
+    // __ РЕГИСТРАЦИЯ на сайте Firebase __
     // далее идет промис
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .catch(error => console.log(error));
+    // firebase.auth().createUserWithEmailAndPassword(email, password)
+    //   .catch(error => console.log(error));
+
+    // __ ВХОД на сайт Firebase __
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch()
   };
 
   render() {
