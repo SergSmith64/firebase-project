@@ -11,8 +11,14 @@
 
 3. fix: database.rules.json - delete comments!
 
-4. ADD Firebase to web-appliction (name: itvdn-project)
+4. ADD Firebase to web-appliction (name: itvdn-project):
 * check the box: set up hosting.
 * npm install -g firebase-tools
 * import * as firebase from 'firebase'
 * IMPORT SDK-firebaseConfig to index.js
+
+5. Connect firebase to the project (in App.js):
+* import * as firebase from 'firebase'
+* componentDidMount() {}
+* const db = firebase.database()
+* console.log(db)
