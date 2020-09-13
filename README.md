@@ -22,3 +22,5 @@
 * componentDidMount() {}
 * const db = firebase.database()
 * console.log(db)
+
+6. Авторизация.
