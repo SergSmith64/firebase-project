@@ -23,4 +23,6 @@
 * const db = firebase.database()
 * console.log(db)
 
-6. Авторизация.
+6. Authorization: checking output of form data
+
+7. use method "createUserWithEmailAndPassword", look at the Network in DevTools, and get an error 400.

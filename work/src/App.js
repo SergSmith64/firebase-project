@@ -20,10 +20,22 @@ export default class App extends Component {
   }
 
   handleChange = ({ target: { value, id } }) => {
-    console.log(value, id)
+    // console.log(value, id);
+    this.setState({
+      [id]: value
+    })
+  };
+
+  createAccount = () => {
+    // alert();
+    const { email, password } = this.state;
+    // далее идет промис
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(error => console.log(error));
   };
 
   render() {
+    // console.log(this.state)
     return (
       <div className="login_block">
         <input
@@ -38,7 +50,10 @@ export default class App extends Component {
           placeholder="password"
           onChange={this.handleChange}
         />
-        <input type="submit" />
+        <input
+          type="submit"
+          onClick={this.createAccount}
+        />
       </div>
     )
   }
