@@ -10,14 +10,22 @@ export default class App extends Component {
     this.state = {
       email: '',
       password: '',
-      hasAccount: false
+      hasAccount: false,
+      // __ завожу стейт NAME __
+      name: ''
     }
   }
 
   // проверка подключения базы данных
   componentDidMount() {
     const db = firebase.database();
-    console.log(db);
+    // __ Добавляю доступ у к созданному (на сайте Firebse) в базе данных полю NAME _
+    const name = db.ref('name');
+    name.on('value', (elem) => {
+      this.setState({ name: elem.val() });
+    });
+    // console.log(db);
+    console.log(name);
   }
 
   handleChange = ({ target: { value, id } }) => {
@@ -46,7 +54,9 @@ export default class App extends Component {
 
   render() {
     // console.log(this.state)
-    const { hasAccount } = this.state;
+    // __ добавояю NAME __
+    const { hasAccount, name } = this.state;
+    console.log(name);
     return (
       <div>
         {

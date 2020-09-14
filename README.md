@@ -30,3 +30,5 @@
 8. Use firebase.auth().signInWithEmailAndPassword() - use to enter the site
 
 9. do the logic: if authorization works, I output: Hello
+
+10. getting value NAME from base to console
