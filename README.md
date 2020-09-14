@@ -28,3 +28,5 @@
 7. use method "createUserWithEmailAndPassword", look at the Network in DevTools, and get an error 400.
 
 8. Use firebase.auth().signInWithEmailAndPassword() - use to enter the site
+
+9. do the logic: if authorization works, I output: Hello

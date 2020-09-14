@@ -9,7 +9,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      hasAccount: false
     }
   }
 
@@ -36,29 +37,45 @@ export default class App extends Component {
 
     // __ ВХОД на сайт Firebase __
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .catch()
+      .then(response => {
+        // console.log(response);
+        this.setState({ hasAccount: true })
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
     // console.log(this.state)
+    const { hasAccount } = this.state;
     return (
-      <div className="login_block">
-        <input
-          type="text"
-          id="email"
-          placeholder="email"
-          onChange={this.handleChange}
-        />
-        <input
-          type="password"
-          id="password"
-          placeholder="password"
-          onChange={this.handleChange}
-        />
-        <input
-          type="submit"
-          onClick={this.createAccount}
-        />
+      <div>
+        {
+          hasAccount ?
+            (
+              <div>Hello</div>
+            )
+            :
+            (
+              <div className="login_block">
+                <input
+                  type="text"
+                  id="email"
+                  placeholder="email"
+                  onChange={this.handleChange}
+                />
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="password"
+                  onChange={this.handleChange}
+                />
+                <input
+                  type="submit"
+                  onClick={this.createAccount}
+                />
+              </div>
+            )
+        }
       </div>
     )
   }
